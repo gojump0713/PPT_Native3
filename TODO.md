@@ -36,6 +36,11 @@
 - [x] 콘솔 에러 0건 확인
 - [x] git 커밋 체크포인트
 
+## M5 — 공유 메타데이터
+- [x] Open Graph 태그 (og:title/description/image/url/locale 등) + twitter:card
+- [x] OG 공유 이미지 제작 ("AI Native Campus 제안", 다크블루, 1200×630 PNG)
+- [x] 파비콘 제작 (32/180/512px PNG)
+
 ## 후속 (에셋 수령 대기)
 - [ ] 공식 TILON CI 파일로 tilon-logo.svg 교체
 - [ ] Pretendard woff2 라이선스 확인 후 assets/fonts 번들 + @font-face
