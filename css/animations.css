@@ -1,0 +1,114 @@
+/* animations.css — entry motion timeline (§14), transform/opacity only */
+
+/* Initial states — revealed by .is-entered on <body> */
+.hero-title-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.hero-title-text {
+  display: inline-block;
+  transform: translateY(110%);
+}
+
+.brand,
+.hero-sub,
+.fs-btn {
+  opacity: 0;
+}
+
+.cta-btn {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Entered states */
+.is-entered .brand {
+  opacity: 1;
+  transition: opacity var(--motion-normal) ease 0.25s;
+}
+
+.is-entered .fs-btn {
+  opacity: 1;
+  transition: opacity var(--motion-normal) ease 0.25s,
+    background 320ms ease,
+    border-color 320ms ease,
+    box-shadow 320ms ease,
+    transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 0.50s — AI NATIVE CAMPUS mask reveal */
+.is-entered .hero-title-text {
+  transform: translateY(0);
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s;
+}
+
+/* 0.75s — sub copy fade in */
+.is-entered .hero-sub {
+  opacity: 1;
+  transition: opacity var(--motion-normal) ease 0.75s;
+}
+
+/* 1.00 / 1.10 / 1.20s — buttons, opacity 0→1 + translateY 24px→0, 0.55s */
+.is-entered .cta-btn {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 320ms ease,
+    border-color 320ms ease,
+    box-shadow 320ms ease;
+}
+
+.is-entered #ctaBtn1 { transition-delay: 1s, 1s, 0s, 0s, 0s; }
+.is-entered #ctaBtn2 { transition-delay: 1.1s, 1.1s, 0s, 0s, 0s; }
+.is-entered #ctaBtn3 { transition-delay: 1.2s, 1.2s, 0s, 0s, 0s; }
+
+/* After entry completes, hand transform back to hover/active styles */
+.is-settled .cta-btn {
+  transition:
+    transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 320ms ease,
+    border-color 320ms ease,
+    box-shadow 320ms ease;
+  transition-delay: 0s;
+}
+
+/* Fallback gradient drift */
+@keyframes gradientDrift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* prefers-reduced-motion — 0.25s fade only (§ Motion) */
+@media (prefers-reduced-motion: reduce) {
+  .hero-title-text {
+    transform: none;
+  }
+
+  .brand,
+  .hero-sub,
+  .fs-btn,
+  .cta-btn {
+    transform: none;
+  }
+
+  .is-entered .brand,
+  .is-entered .fs-btn,
+  .is-entered .hero-sub,
+  .is-entered .cta-btn {
+    transition: opacity 0.25s ease;
+    transition-delay: 0s;
+  }
+
+  .is-entered .hero-title-text {
+    transition: none;
+  }
+
+  .fallback-gradient {
+    animation: none;
+  }
+}

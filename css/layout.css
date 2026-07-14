@@ -1,0 +1,161 @@
+/* layout.css — fixed stage 1920x1080, letterbox scaling (§5) */
+
+body {
+  font-family: var(--font-display);
+  background: var(--color-bg);
+  color: var(--color-white);
+}
+
+.viewport {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg); /* letterbox bars */
+  overflow: hidden;
+}
+
+/* Fixed logical stage — scaled via transform only, no reflow */
+.stage {
+  position: absolute;
+  width: var(--stage-width);
+  height: var(--stage-height);
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+  /* JS sets: translate(-50%, -50%) scale(n) */
+  transform: translate(-50%, -50%) scale(1);
+  overflow: hidden;
+  background: var(--color-navy);
+}
+
+/* Layer 0 — poster / gradient fallback */
+.layer-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.fallback-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #031019 0%, #051520 35%, #06283a 68%, #031019 100%);
+  background-size: 300% 300%;
+  animation: gradientDrift 14s ease-in-out infinite;
+}
+
+.fallback-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Layer 1 — hero video (§6.3) */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 1;
+  opacity: 0;
+}
+
+.hero-video.is-ready {
+  opacity: 1;
+  transition: opacity 800ms ease;
+}
+
+/* Partial gradient — top logo / bottom button readability only (§7) */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 8, 16, 0.10) 0%,
+    rgba(0, 8, 16, 0.00) 40%,
+    rgba(0, 8, 16, 0.08) 65%,
+    rgba(0, 8, 16, 0.38) 100%
+  );
+}
+
+/* Layer 2 — hero copy (§9) */
+.hero-copy {
+  position: absolute;
+  left: 120px;
+  top: 230px;
+  max-width: 1000px;
+  z-index: 3;
+}
+
+.hero-title {
+  font-size: 82px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1.08;
+  color: var(--color-white);
+  text-shadow: 0 2px 24px rgba(0, 8, 16, 0.45);
+}
+
+.hero-sub {
+  margin-top: 26px;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 1px 16px rgba(0, 8, 16, 0.55);
+}
+
+/* Layer 3 — CTA group (§10) */
+.cta-group {
+  position: absolute;
+  left: 180px;
+  top: 870px;
+  width: 1560px;
+  height: 108px;
+  display: flex;
+  gap: 30px;
+  z-index: 4;
+}
+
+/* Layer 4 — top bar (§8 + fullscreen) */
+.top-bar {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.brand {
+  position: absolute;
+  left: 120px;
+  top: 74px;
+  pointer-events: auto;
+}
+
+.brand-img {
+  max-width: 150px;
+  height: auto;
+}
+
+.brand-text {
+  display: none;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--color-white);
+}
+
+.brand--text .brand-text {
+  display: inline-block;
+}
+
+.fs-btn {
+  position: absolute;
+  right: 120px;
+  top: 74px;
+  pointer-events: auto;
+}

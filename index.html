@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TILON AI Native Campus</title>
+  <meta name="description" content="틸론 대학 솔루션 — 대학의 교육·연구·업무를 연결하는 지능형 디지털 캠퍼스">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/animations.css">
+  <link rel="stylesheet" href="./css/fallback.css">
+</head>
+<body>
+
+  <!-- Viewport root: letterbox background -->
+  <div class="viewport" id="viewport">
+
+    <!-- Fixed Stage 1920x1080 -->
+    <div class="stage" id="stage">
+
+      <!-- Layer 0 : Poster / Animated Gradient (video failure fallback) -->
+      <div class="layer-fallback" id="layerFallback" aria-hidden="true">
+        <div class="fallback-gradient"></div>
+        <img class="fallback-poster" id="fallbackPoster"
+             src="./assets/images/brand-city-poster.webp"
+             alt="" draggable="false"
+             onerror="this.remove()">
+      </div>
+
+      <!-- Layer 1 : Hero Video -->
+      <video class="hero-video" id="heroVideo"
+             autoplay muted loop playsinline preload="auto"
+             tabindex="-1" aria-hidden="true">
+        <source src="./assets/videos/brand-city.webm" type="video/webm">
+        <source src="./assets/videos/brand-city.mp4" type="video/mp4">
+      </video>
+
+      <!-- Partial readability gradient (no full dark overlay) -->
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <!-- Layer 2 : Hero Message -->
+      <header class="hero-copy">
+        <h1 class="hero-title" id="heroTitle">
+          <span class="hero-title-mask"><span class="hero-title-text">AI NATIVE CAMPUS</span></span>
+        </h1>
+        <p class="hero-sub" id="heroSub">
+          대학의 교육·연구·업무를 연결하는<br>
+          지능형 디지털 캠퍼스
+        </p>
+      </header>
+
+      <!-- Layer 3 : CTA Buttons -->
+      <nav class="cta-group" id="ctaGroup" aria-label="AI Native Campus 콘텐츠">
+        <a class="cta-btn" id="ctaBtn1" data-key="1"
+           href="https://gojump0713.github.io/PPT_Native"
+           target="_blank" rel="noopener noreferrer">
+          <span class="cta-inner">
+            <span class="cta-index">01</span>
+            <span class="cta-label">AI Native Campus<br><strong>솔루션 소개</strong></span>
+            <span class="cta-arrow" aria-hidden="true">&#8599;</span>
+          </span>
+        </a>
+        <a class="cta-btn" id="ctaBtn2" data-key="2"
+           href="https://gojump0713.github.io/PPT_Native2"
+           target="_blank" rel="noopener noreferrer">
+          <span class="cta-inner">
+            <span class="cta-index">02</span>
+            <span class="cta-label">AI Native Campus<br><strong>구축 사례</strong></span>
+            <span class="cta-arrow" aria-hidden="true">&#8599;</span>
+          </span>
+        </a>
+        <a class="cta-btn" id="ctaBtn3" data-key="3"
+           href="https://gojump0713.github.io/PPT_ART"
+           target="_blank" rel="noopener noreferrer">
+          <span class="cta-inner">
+            <span class="cta-index">03</span>
+            <span class="cta-label">AI Native Campus<br><strong>도입 효과</strong></span>
+            <span class="cta-arrow" aria-hidden="true">&#8599;</span>
+          </span>
+        </a>
+      </nav>
+
+      <!-- Layer 4 : Brand + Fullscreen control -->
+      <div class="top-bar">
+        <div class="brand" id="brandCi">
+          <img class="brand-img" id="brandImg"
+               src="./assets/images/tilon-logo.svg" alt="TILON" draggable="false"
+               onerror="this.closest('.brand').classList.add('brand--text'); this.remove()">
+          <span class="brand-text" aria-hidden="true">TILON</span>
+        </div>
+        <button type="button" class="fs-btn" id="fsBtn" aria-label="전체 화면 전환">
+          <span class="fs-icon" aria-hidden="true"></span>
+          <span class="fs-label">Full Screen</span>
+        </button>
+      </div>
+
+    </div><!-- /stage -->
+  </div><!-- /viewport -->
+
+  <!-- Layer 5 : PC-only gate -->
+  <div class="env-gate" id="envGate" hidden>
+    <div class="env-gate-inner">
+      <p class="env-gate-brand">TILON</p>
+      <h2 class="env-gate-title">AI Native Campus</h2>
+      <p class="env-gate-msg">
+        본 콘텐츠는 PC 환경에 최적화되어 있습니다.<br><br>
+        Chrome 또는 Edge가 설치된<br>
+        데스크톱·노트북에서 확인해 주세요.
+      </p>
+    </div>
+  </div>
+
+  <script src="./js/config.js"></script>
+  <script src="./js/env-gate.js"></script>
+  <script src="./js/stage.js"></script>
+  <script src="./js/video-controller.js"></script>
+  <script src="./js/fullscreen.js"></script>
+  <script src="./js/interactions.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+/* tokens.css — design tokens (UI 기능명세서 §17) */
+:root {
+  --stage-width: 1920px;
+  --stage-height: 1080px;
+
+  --color-bg: #031019;
+  --color-navy: #051520;
+
+  --color-primary: var(--tilon-ci-color, #00b58a);
+  --color-accent: #23e1c1;
+
+  --color-white: #ffffff;
+  --color-muted: rgba(255, 255, 255, 0.68);
+
+  --glass-bg: rgba(5, 20, 28, 0.14);
+  --glass-hover: rgba(5, 20, 28, 0.27);
+  --glass-border: rgba(255, 255, 255, 0.24);
+
+  --font-display: "Pretendard", "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
+
+  --motion-fast: 180ms;
+  --motion-normal: 550ms;
+  --motion-slow: 900ms;
+}

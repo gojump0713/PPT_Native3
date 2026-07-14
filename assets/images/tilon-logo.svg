@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="72" viewBox="0 0 300 72" role="img" aria-label="TILON">
+  <!-- Temporary TILON wordmark — replace with official CI when provided (§8.1) -->
+  <g fill="#ffffff">
+    <path d="M8 14h52v11H41v33H27V25H8z"/>
+    <path d="M70 14h14v44H70z"/>
+    <path d="M96 14h14v33h26v11H96z"/>
+    <path d="M163 13c-14.4 0-24 9.2-24 23s9.6 23 24 23 24-9.2 24-23-9.6-23-24-23zm0 11c6.5 0 10 4.8 10 12s-3.5 12-10 12-10-4.8-10-12 3.5-12 10-12z"/>
+    <path d="M196 14h13l19 25V14h13v44h-13l-19-25v25h-13z"/>
+  </g>
+  <circle cx="256" cy="52" r="6" fill="#00b58a"/>
+</svg>

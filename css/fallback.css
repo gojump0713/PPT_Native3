@@ -1,0 +1,35 @@
+/* fallback.css — degraded rendering paths */
+
+/* Video failed → keep poster/gradient visible, video layer hidden */
+.video-failed .hero-video {
+  display: none;
+}
+
+/* Reduced motion allows poster instead of video */
+@media (prefers-reduced-motion: reduce) {
+  .hero-video.is-ready {
+    transition: none;
+  }
+}
+
+/* backdrop-filter unsupported → slightly stronger glass bg for readability */
+@supports not (backdrop-filter: blur(12px)) {
+  .cta-btn,
+  .fs-btn {
+    background: rgba(5, 20, 28, 0.42);
+  }
+}
+
+/* JS disabled — stage stays centered at 1:1 via CSS default transform,
+   content remains reachable (no entry animation gating) */
+.no-js .brand,
+.no-js .hero-sub,
+.no-js .fs-btn,
+.no-js .cta-btn {
+  opacity: 1;
+  transform: none;
+}
+
+.no-js .hero-title-text {
+  transform: none;
+}
